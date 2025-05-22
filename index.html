@@ -167,7 +167,7 @@
               Vision language models (VLMs) are expected to perform effective multimodal reasoning and make logically coherent
               decisions, which is critical to tasks such as diagram understanding and spatial problem solving. However, current VLM
               reasoning lacks large-scale and well-structured training datasets. To bridge this gap, we propose <b>VisualSphinx</b>, a
-              <b>first-of-its-kind large-scale synthetic</b> visual logical reasoning training data. To tackle the challenge of image
+              first-of-its-kind <b>large-scale</b> synthetic visual logical reasoning training data. To tackle the challenge of image
               synthesis with grounding answers, we propose a <b>rule-to-image synthesis pipeline</b>, which extracts and expands puzzle rules
               from seed questions and generates the code of grounding synthesis image synthesis for puzzle sample assembly.
               Experiments demonstrate that VLM trained using GRPO on VisualSphinx benefit from logical coherence and readability of
@@ -187,7 +187,7 @@
     <div class="container is-max-desktop">
       <!-- Optional section title -->
       <div class="has-text-centered">
-        <h2 class="title is-3">KodCode Pipeline</h2>
+        <h2 class="title is-3">VisualSphinx Examples</h2>
       </div>
       <br>
       <!-- Figure on top -->
@@ -197,10 +197,8 @@
       </figure>
       <br>
       <p class="has-text-left">
-        This figure demonstrates the pipeline for generating KodCode-V1. Our approach follows a three-step pipeline:
-        <i>Coding Question Synthesis</i>, <i>Solution & Test Generation</i>, and <i>Post-training Data Synthesis</i>.
-        The final KodCode-V1 dataset contains <b>447K verified question-solution-test triplets</b>. The distribution of
-        each subset is demonstrated on the right.
+        This figure demonstrates the <b>VisualSphinx-V1</b> instances within each reasoning category. Each visual logic puzzle comprises a text prompt, a
+        graphical question stem with four images and a question mark, and four candidate choices of graphical answers.
       </p>
     </div>
   </section>
@@ -209,7 +207,7 @@
   <div class="container is-max-desktop">
     <!-- Optional section title -->
     <div class="has-text-centered">
-      <h2 class="title is-3">✨ KodCode is Diverse! ✨</h2>
+      <h2 class="title is-3">✨ VisualSphinx Pipeline ✨</h2>
     </div>
     <br>
     <!-- Figure on top -->
@@ -219,8 +217,14 @@
     </figure>
     <br>
     <p class="has-text-left">
-      This figure demonstrates the diversity of KodCode-V1. We present statistics on questions, solutions, and number of
-      tests, as well as the distribution of each subset compared with baselines.
+      This figure illustrates the <b>>four-stage</b> pipeline for generating <b>VisualSphinx-V1</b>. In Step 1, we collect 4K seed
+      puzzles with explanations and abstract them into structured rule descriptions using LLMs. In Step 2, we apply a
+      rule-level genetic algorithm to cross over, mutate and diversify the seed rules, scaling them to 40K high-quality rules.
+      In Step 3, each rule is paired with a rendering style and used to generate five correct and three incorrect images via
+      LLM-generated Python scripts. The fifth correct image is designated as the answer option, while the three rule-breaking
+      images serve as distractors. After deduplication, we obtain 110K image groups. In Step 4, we assemble puzzles from each
+      group using three complementary strategies: default assembly, shuffled answer variants, and expanded distractor sets.
+      This results in over 660K visual logic puzzles, enabling robust and diverse training for multimodal reasoning models.
     </p>
   </div>
   </section>
@@ -229,7 +233,7 @@
   <div class="container is-max-desktop">
     <!-- Optional section title -->
     <div class="has-text-centered">
-      <h2 class="title is-3">✨ KodCode is Challenging! ✨</h2>
+      <h2 class="title is-3">✨ KodCode is High-quality! ✨</h2>
     </div>
     <br>
     <!-- Figure on top -->
@@ -249,7 +253,7 @@
   <div class="container is-max-desktop">
     <!-- Optional section title -->
     <div class="has-text-centered">
-      <h2 class="title is-3">✨ Performance on Coding Benchmarks ✨</h2>
+      <h2 class="title is-3">✨ Performance on Our Benchmarks ✨</h2>
     </div>
     <br>
     <!-- Figure on top -->
@@ -307,8 +311,8 @@
 
 
 
-
-  <!-- Kodkod introduction and video -->
+  <!--
+  Kodkod introduction and video
   <section class="hero is-small is-light">
     <div class="hero-body">
       <div class="container">
@@ -324,7 +328,6 @@
               </p>
             </div>
             <div class="publication-video">
-              <!-- Youtube embed code here -->
               <iframe src="https://www.youtube.com/embed/BFA6hxfnVjM" frameborder="0" allow="autoplay; encrypted-media"
                 allowfullscreen></iframe>
             </div>
@@ -333,7 +336,8 @@
       </div>
     </div>
   </section>
-  <!-- End Kodkod introduction and video -->
+  End Kodkod introduction and video
+  -->
 
 
   <!-- 
